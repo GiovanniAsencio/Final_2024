@@ -8,8 +8,8 @@ output:
     toc_depth: 5
 date: "`r Sys.Date()`"
 ---
-Writing
 
+```{r include=FALSE, echo=FALSE}
 require(tidyverse)
 require(tigerstats)
 require(forcats)
@@ -19,9 +19,9 @@ FinalDat <- read.csv(file = "finalSumr2024.csv", header = TRUE)
 FinalData <- FinalDat %>% select(-one_of("X"))
 
 FinalData <- FinalData %>%
-mutate(across(where(is.character), as.factor))
-
+  mutate(across(where(is.character), as.factor))
 Introduction / Overall Approach
+
 This dataset comes from a simulated randomized clinical trial testing a preventative vaccine called covid921. Participants were randomly assigned to receive either the vaccine or a placebo, then followed to see whether they became infected or stayed OK. The dataset also includes background variables such as sex, LGBTQ identity, and drug use.
 
 The goal of this project is to examine whether the vaccine is effective overall and within subgroups:
@@ -45,77 +45,62 @@ Run a chi-square test
 Interpret whether the vaccine appears effective
 
 I begin with the overall results.
-
-Writing
-
 OverallTab <- xtabs(~ treatment + infected, data = FinalData)
 OverallTab
 rowPerc(OverallTab)
 chisqtestGC(OverallTab)
-
 Placebo participants show about a 2.7% infection rate, while vaccinated participants show about 1.2% infection. The chi-square test gives a very small p-value, providing strong evidence that the vaccine reduces infection risk overall.
 
 Males
+
 Here I examine male participants only.
-
-Writing
-
 Males <- FinalData %>% filter(sex == "M")
 MaleTab <- xtabs(~ treatment + infected, data = Males)
 MaleTab
 rowPerc(MaleTab)
 chisqtestGC(MaleTab)
-
 Males on placebo show about 2.8% infection, while vaccinated males show about 1.0%. The p-value is very small, meaning there is strong evidence of a difference.
 
 Conclusion: The vaccine appears effective for males.
 
 Females
+
 Now I look at female participants only.
-
-Writing
-
 Females <- FinalData %>% filter(sex == "F")
 FemaleTab <- xtabs(~ treatment + infected, data = Females)
 FemaleTab
 rowPerc(FemaleTab)
 chisqtestGC(FemaleTab)
-
 Females on placebo show around 2.6% infection, while vaccinated females show about 1.4% infection. The reduction is smaller than in males but still meaningful. The chi-square test is significant.
 
 Conclusion: The vaccine appears effective for females.
 
 LGBTQ (Gay)
+
 Participants coded as gay are analyzed here.
-
-Writing
-
 LGBTQgroup <- FinalData %>% filter(LGBTQ == "gay")
 LGBTQTab <- xtabs(~ treatment + infected, data = LGBTQgroup)
 LGBTQTab
 rowPerc(LGBTQTab)
 chisqtestGC(LGBTQTab)
-
 Gay participants on placebo show around 3.2% infection, while vaccinated gay participants show about 0.8% infection. This is a large improvement, and the chi-square test confirms significance.
 
 Conclusion: The vaccine appears highly effective for LGBTQ (gay) participants.
 
 Drug Users
+
 Drug-using participants are analyzed next.
-
-Writing
-
 Druggies <- FinalData %>% filter(DrugUser == "yes")
 DrugTab <- xtabs(~ treatment + infected, data = Druggies)
 DrugTab
 rowPerc(DrugTab)
 chisqtestGC(DrugTab)
-
 Here the results reverse: drug users on placebo show about 0.3% infection, while vaccinated drug users show about 3.6% infection. The chi-square test is significant.
 
 Conclusion: The vaccine appears ineffective or harmful for drug users, based on this dataset.
 
 Final Summary and Recommendation
+
 Overall, the covid921 vaccine reduces covid19 infection and is effective in most groups analyzed. It works well for males, females, and LGBTQ (gay) participants.
 
 However, drug users show much higher infection rates in the vaccinated group than in the placebo group. This suggests the vaccine may not be appropriate for drug users without further study.
