@@ -1,4 +1,4 @@
-
+---
 title: "Covid91 vaccine study Final2024"
 author: "Giovanni Asencio"
 output: 
@@ -71,7 +71,7 @@ Conclusion: The vaccine appears effective for males.
 # Females
 
 Now I look at female participants only.
-```r
+```{r}
 Females <- FinalData %>% filter(sex == "F")
 FemaleTab <- xtabs(~ treatment + infected, data = Females)
 FemaleTab
@@ -85,7 +85,7 @@ Conclusion: The vaccine appears effective for females.
 # LGBTQ (Gay)
 
 Participants coded as gay are analyzed here.
-```r
+```{r}
 LGBTQgroup <- FinalData %>% filter(LGBTQ == "gay")
 LGBTQTab <- xtabs(~ treatment + infected, data = LGBTQgroup)
 LGBTQTab
@@ -99,7 +99,7 @@ Conclusion: The vaccine appears highly effective for LGBTQ (gay) participants.
 # Drug Users
 
 Drug-using participants are analyzed next.
-```r
+```{r}
 Druggies <- FinalData %>% filter(DrugUser == "yes")
 DrugTab <- xtabs(~ treatment + infected, data = Druggies)
 DrugTab
