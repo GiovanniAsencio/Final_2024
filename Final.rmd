@@ -122,6 +122,3 @@ However, drug users show much higher infection rates in the vaccinated group tha
 
 Final Recommendation:
 The covid921 vaccine appears beneficial for most subgroups in the study but may be unsafe for drug users. A general recommendation would be to use the vaccine for the overall population except for individuals who use drugs, pending further investigation.
-
-yaml
-Copy code
