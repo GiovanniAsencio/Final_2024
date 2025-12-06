@@ -1,6 +1,6 @@
 ---
 title: "Covid91 vaccine study Final2024"
-author: Giovanni Asencio
+author: "Giovanni Asencio"
 output: 
   html_document:
     number_sections: true
@@ -67,6 +67,7 @@ rowPerc(MaleTab)
 chisqtestGC(MaleTab)
 
 Males on placebo show about 2.8% infection, while vaccinated males show about 1.0%. The p-value is very small, meaning there is strong evidence of a difference.
+
 Conclusion: The vaccine appears effective for males.
 
 Females
@@ -80,7 +81,8 @@ FemaleTab
 rowPerc(FemaleTab)
 chisqtestGC(FemaleTab)
 
-Females on placebo show around 2.6% infection, while vaccinated females show about 1.4%. The reduction is smaller than in males but still meaningful. The chi-square test is significant.
+Females on placebo show around 2.6% infection, while vaccinated females show about 1.4% infection. The reduction is smaller than in males but still meaningful. The chi-square test is significant.
+
 Conclusion: The vaccine appears effective for females.
 
 LGBTQ (Gay)
@@ -94,7 +96,8 @@ LGBTQTab
 rowPerc(LGBTQTab)
 chisqtestGC(LGBTQTab)
 
-Gay participants on placebo show around 3.2% infection, while vaccinated gay participants show about 0.8%. This is a large improvement, and the chi-square test confirms significance.
+Gay participants on placebo show around 3.2% infection, while vaccinated gay participants show about 0.8% infection. This is a large improvement, and the chi-square test confirms significance.
+
 Conclusion: The vaccine appears highly effective for LGBTQ (gay) participants.
 
 Drug Users
@@ -109,6 +112,7 @@ rowPerc(DrugTab)
 chisqtestGC(DrugTab)
 
 Here the results reverse: drug users on placebo show about 0.3% infection, while vaccinated drug users show about 3.6% infection. The chi-square test is significant.
+
 Conclusion: The vaccine appears ineffective or harmful for drug users, based on this dataset.
 
 Final Summary and Recommendation
@@ -116,7 +120,8 @@ Overall, the covid921 vaccine reduces covid19 infection and is effective in most
 
 However, drug users show much higher infection rates in the vaccinated group than in the placebo group. This suggests the vaccine may not be appropriate for drug users without further study.
 
-Final Recommendation: Recommend the covid921 vaccine for the general population except for individuals who use drugs, until more research explains the reversed effect in that subgroup.
+Final Recommendation:
+The covid921 vaccine appears beneficial for most subgroups in the study but may be unsafe for drug users. A general recommendation would be to use the vaccine for the overall population except for individuals who use drugs, pending further investigation.
 
 yaml
 Copy code
