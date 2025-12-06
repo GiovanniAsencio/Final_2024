@@ -27,13 +27,13 @@ This dataset comes from a simulated randomized clinical trial testing a preventa
 
 The goal of this project is to examine whether the vaccine is effective overall and within subgroups:
 
-# Males
+- Males
 
-# Females
+- Females
 
-# LGBTQ (gay)
+- LGBTQ (gay)
 
-# Drug users
+- Drug users
 
 For each group, I will:
 
